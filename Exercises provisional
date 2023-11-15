@@ -1,0 +1,68 @@
+//Operators
+//Exercise 1
+
+let num1 = 5
+let num2 = 6
+
+num1 -= 1
+num1 += 1
+num1 *= 2
+num1 /= 2
+
+num2 -= 4
+num2 += 10
+num2 *= 4
+num2 /= 3
+
+//Exercise 2
+
+console.log(num1%num2)
+
+//Exercise 3
+
+console.log(num1 ++)
+console.log(num1 --)
+
+//Exercise 4
+
+let variable1 = true
+let variable2 = false
+
+let vars = (variable1 === variable2) ? 'True': 'False'9
+
+
+//Exercise 5
+
+let str1 = 'Hello'
+let str2 = 'boy'
+
+let str3 = 'str1 + ' ' + str2'
+
+//Exercise 6
+
+comp1 = 6
+comp2 = 5
+
+console.log(comp1 === comp2)
+
+//Exercise 7
+
+let bool1 = true
+let bool2 = !bool1
+
+//Exercise 8
+let num1 = 2
+
+let recognizer = (num1%2 != 0) ? 'Odd': 'Even'
+recognizer
+
+//Exercise 10
+let num1 = 15
+let recognize = (num1%3 == 0 && num1%5 == 0) ? 'Its divisible': 'Its not divisible'
+recognize
+
+
+
+
+
+
