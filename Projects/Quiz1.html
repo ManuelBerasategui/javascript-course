@@ -6,6 +6,100 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="Quiz1.js"></script>
+    <script>
+        alert('Welcome to the best Quiz ever!!!')
+let name = prompt('First of all...whats your name? ')
+alert('Oh! Hello ' + name + '!!')
+
+
+let options = [
+    ShipDesert = [
+        'Sheep',
+        'Camel',
+        'Bird'
+    ],
+    DaysInWeek  = [
+        5,
+        10,
+        7
+    ],
+    HoursInDay = [
+        36,
+        24,
+        100
+    ],
+    LettersInAlphabet = [
+        26,
+        27,
+        28
+    ],
+    RainbowColors = [
+        7,
+        8,
+        11
+    ],
+
+]
+
+questions = [
+    'Wich animal is called the "Ship of the Desert"?',
+    'How many days are there in a week?',
+    'How many hours are there in a day?',
+    'How many letters does the alphabet have?',
+    'How many colors does the rainbow have?'
+]
+
+let choices = []
+
+let correctAnswers = [
+    'Camel',
+    '7',
+    '24',
+    '26',
+    '7',
+]
+
+let remainingQuestions = questions.length
+let i = 0
+alert('Lets start with the quiz!! ¿Ready?')
+alert('For each question, choose the right answer and delete the others')
+
+let correctGuesses = 0
+let incorrectGuesses = 0
+
+while(remainingQuestions > 0){
+
+    let guess = prompt(questions[i], options[i])
+    
+    if(guess === null){
+        alert('Quiz cancelled')
+        break
+    }
+    else if(guess === correctAnswers[i]){
+        alert('Thats right! Next question')
+        correctGuesses++
+    }
+    else{
+        alert('Incorrect, the right question was ' + correctAnswers[i])
+        incorrectGuesses ++
+    }
+    i++
+    remainingQuestions --
+    
+}
+
+alert('Thats the end of the quiz, you had ' + correctGuesses + ' correct answers, ' + incorrectGuesses + ' incorrect guesses, and an average of ' + (correctGuesses/(correctGuesses + incorrectGuesses)) * 100 + '% correct answers')
+
+
+
+
+
+
+
+
+
+
+
+    </script>
 </body>
 </html>
