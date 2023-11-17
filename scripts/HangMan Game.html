@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hang Man</title>
+</head>
+<body>
+    <h1>HangMan!</h1>
+    <script>
+        
+
+        /* Pseudocode
+            Pick a random word
+            
+            While the word has not been guessed {
+                Show the player their current progress
+                Get a guess from the player
+
+                If the player wants to quit the game{
+                    Quit the game
+                } 
+                Else If the guess is not a single letter{
+                    Tell the player to pick a single letter
+                }
+                Else{
+                    If the guess is in the word{
+                        Update the players progress with the guess
+                    }
+                }
+            }
+
+            Congratulate the player on guessing the word
+            
+            
+            */
+
+        let words = [
+            'javascript',
+            /* 'monkey',
+            'banana',
+            'spidey',
+            'spider',
+            'lion',
+            'good' */
+            
+        ]
+        let word = words[Math.floor(Math.random() * words.length)]
+        let answer = []
+        for(i = 0; i < word.length; i++){
+            answer.push('_')
+        }
+        
+        let remainingLetters = word.length
+        let remainingGuesses = 10
+
+        while(remainingLetters > 0 && remainingGuesses > 0){
+            alert(answer.join(' '))
+
+            let guess = prompt('Guess a letter, or click cancel to stop playing.')
+            if(guess === null){
+                break
+            } else if(guess.length !== 1){
+                alert('Please enter a single character')
+            } else{
+                for(let j = 0; j < word.length; j++){
+                    if(word[j] === guess.toLowerCase() && guess.toLowerCase() != answer[j]){    
+                        answer[j] = guess.toLowerCase()
+                        remainingLetters --
+                    }
+                }
+            }
+            alert('Remaining Guesses ' + remainingGuesses)
+            remainingGuesses --
+        }
+
+        if(remainingLetters === 0){
+            alert(answer.join(' '))
+            alert('Good job, the answer was ' + word)
+        } else{
+            alert('You lost :(')
+        }
+
+
+    </script>
+</body>
+</html>
