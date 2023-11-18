@@ -5,7 +5,50 @@
 </head>
 <body>
   <script>
-    
+    let tasks = []
+exitProgramme = false
+
+while(exitProgramme === false); {
+  let choose = prompt('To add a task, type 1. To edit a task, type 2. To delete a task, type 3. To exit the programme, type 4 ')
+  
+  // Adding a task
+  if(choose === 1) ;{
+    let auxAdd = prompt('Wich is the task to add? ')
+    tasks = tasks.push(auxAdd)
+  }
+  
+  //Editing a task
+  if(choose === 2){
+    if(tasks.length !== 0){
+      let auxEdit = prompt('Wich task would you like to edit? ')
+
+      for(let i =0; i < tasks.length; i++){
+        if (auxEdit === tasks[i]){
+          let edit = prompt('Edit the task: ')
+          task[i] = edit
+        }
+        else{
+          alert('There are no tasks called ' + auxEdit)
+        }
+      }
+    }
+    else{
+      alert('There are no tasks to edit')
+    }
+  }
+
+  //Deleting a task
+  if(choose === 3){
+    if(tasks.length !== 0){
+      auxDel = prompt('Wich task would you like to delete? ')
+      
+    }
+  }
+}
+
+
+
+
   </script>
 </body>
 </html>
