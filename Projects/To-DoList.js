@@ -12,16 +12,30 @@
       tasks array += add auxiliar variable
     }
 
-    Else if (user chooses to edit a task && there are tasks created to edit){
-      prompt the user to choose a task to edit
-      edited task auxiliar variable = prompt the user to edit
-      save the edit auxiliar variable into the task array
+    Else if (user chooses to edit a task){
+        if(There are tasks to edit){
+        
+          prompt the user to choose a task to edit
+          edited task auxiliar variable = prompt the user to edit
+          save the edit auxiliar variable into the task array
+        }
+        else{
+        tell the user there are no tasks to edit
+        continue
+    }
     }
 
-    Else if (user chooses to delete a task && there are tasks created to delete){
-      delete task auxiliar variable = prompt the user wich task to edit
-      if (del auxiliar variable === any variable in main task's array){
-        delete that task in the main task's array
+    Else if (user chooses to delete a task ){
+        if(There are any tasks to delete){
+            delete task auxiliar variable = prompt the user wich task to edit
+            if (del auxiliar variable === any variable in main task's array){
+                delete that task in the main task's array
+        }
+        else{
+        Tell the user there are no tasks to delete
+        }
+        
+      
     }
     }
 
