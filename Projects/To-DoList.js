@@ -19,7 +19,8 @@
           edited task auxiliar variable = prompt the user to edit
           for(length of the tasks array){
               if (task to edit === any task of the tasks array){
-                  save the edit auxiliar variable into the task array
+                  prompt the user to edit that task
+                  update task
               }
           }
           
