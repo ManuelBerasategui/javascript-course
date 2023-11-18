@@ -22,6 +22,9 @@
                   prompt the user to edit that task
                   update task
               }
+              else{
+              tell the user there no tasks called as the auxiliar edit variable
+              }
           }
           
         }
