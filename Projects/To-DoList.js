@@ -37,8 +37,10 @@
     Else if (user chooses to delete a task ){
         if(There are any tasks to delete){
             delete task auxiliar variable = prompt the user wich task to edit
-            if (del auxiliar variable === any variable in main task's array){
-                delete that task in the main task's array
+            for(tasks array length){
+                if (del auxiliar variable === any variable in main task's array){
+                    delete that task in the main task's array
+            }
         }
         else{
         Tell the user there are no tasks to delete
