@@ -17,7 +17,12 @@
         
           prompt the user to choose a task to edit
           edited task auxiliar variable = prompt the user to edit
-          save the edit auxiliar variable into the task array
+          for(length of the tasks array){
+              if (task to edit === any task of the tasks array){
+                  save the edit auxiliar variable into the task array
+              }
+          }
+          
         }
         else{
         tell the user there are no tasks to edit
