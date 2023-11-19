@@ -6,45 +6,71 @@
 <body>
   <script>
     let tasks = []
-exitProgramme = false
+    exitProgramme = false
 
-while(exitProgramme === false); {
-  let choose = prompt('To add a task, type 1. To edit a task, type 2. To delete a task, type 3. To exit the programme, type 4 ')
-  
-  // Adding a task
-  if(choose === 1) ;{
-    let auxAdd = prompt('Wich is the task to add? ')
-    tasks = tasks.push(auxAdd)
-  }
-  
-  //Editing a task
-  if(choose === 2){
-    if(tasks.length !== 0){
-      let auxEdit = prompt('Wich task would you like to edit? ')
+    while(exitProgramme === false) {
+      let choose = prompt('To add a task, type 1. To edit a task, type 2. To delete a task, type 3. To exit the programme, type 4 ')
+      
+      // Adding a task
+      if(choose === '1') {
+        let auxAdd = prompt('Wich is the task to add? ')
+        tasks.push(auxAdd)
+        alert('Succesfully added ' + auxAdd + ' to tasks')
+        
+      }
+      
+      //Editing a task
+      if(choose === '2'){
+        if(tasks.length !== 0){
+          let auxEdit = prompt('Wich task would you like to edit? ')
+          let thereItIs = false
 
-      for(let i =0; i < tasks.length; i++){
-        if (auxEdit === tasks[i]){
-          let edit = prompt('Edit the task: ')
-          task[i] = edit
+          for(let i =0; i < tasks.length; i++){
+            if (auxEdit === tasks[i]){
+              let edit = prompt('Edit the task: ')
+              tasks[i] = edit
+              thereItIs = true
+              alert('Succesfully edited the task ' + auxEdit)
+            }
+            
+          }
+          if(thereItIs === false){
+              alert('There are no tasks called ' + auxEdit)
+            }
         }
         else{
-          alert('There are no tasks called ' + auxEdit)
+          alert('There are no tasks to edit')
         }
       }
-    }
-    else{
-      alert('There are no tasks to edit')
-    }
-  }
 
-  //Deleting a task
-  if(choose === 3){
-    if(tasks.length !== 0){
-      auxDel = prompt('Wich task would you like to delete? ')
+      //Deleting a task
+      if(choose === '3'){
+        if(tasks.length !== 0){
+          let auxDel = prompt('Wich task would you like to delete? ')
+          let thereItIs = false
+          for(let i = 0; i < tasks.length; i++){
+            if (auxDel === tasks[i]){
+              tasks.splice(i, 1)
+              thereItIs = true
+              alert('Task ' + auxDel + ' successfully deleted')
+            }
+          }
+          if(thereItIs === false){
+
+          }
+          
+        }
+        else{
+          alert('There are no tasks to delete')
+        }
+      }
+
+      if(choose === '4' || choose === null){
+        break
+      }
       
+      alert('Tasks status: ' + tasks)
     }
-  }
-}
 
 
 
