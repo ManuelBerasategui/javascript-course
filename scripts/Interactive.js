@@ -144,6 +144,45 @@ function moveHeading(){
     
 }
 
-let intervalId2 = setInterval(moveHeading, 0.000000001)
+let intervalId2 = setInterval(moveHeading, 10)
+
+//#3 Cancel animation with a click
+
+/* const button = document.getElementById('heading'); //Take the h1 element from html
+
+button.addEventListener('click', function handleClick() { //calling the h1 element by its variable, aplying the addEventListener function, to detect when an event (click) happens, and finally setting what will happen with the function handleClick
+  clearInterval(intervalId2)
+}); */
+
+//#4 Speed up heading by Click
+
+const button = document.getElementById('heading'); //Take the h1 element from html
+
+let speed = 1
+let clicks = 0
+var intervalId3
+var auxIntervalId3
+button.addEventListener('click', function handleClick() {
+    clicks += 1
+    intervalId3 = auxIntervalId3
+    if(clicks < 10){
+        clearInterval(intervalId3)
+        clearInterval(intervalId2)
+        auxIntervalId3 = setInterval(moveHeading, speed *= 0.001)
+        $('#heading').text(clicks)
+    }
+    else{
+        $('#heading').text('You win')
+        clearInterval(intervalId3)
+    }
+
+});
+
+
+
+
+
+
+
 
 
