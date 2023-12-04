@@ -20,3 +20,9 @@ var drawCar = function(car){
     $('body').append(carElement)
 }
 
+var tesla = new Car(20, 20)
+var nissan = new Car(100, 200)
+
+drawCar(tesla)
+drawCar(nissan)
+
