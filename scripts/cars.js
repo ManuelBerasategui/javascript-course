@@ -12,7 +12,7 @@ var drawCar = function(car){
     var carElement = $(carHtml)
 
     carElement.css({
-        position: 'absolute',
+        position: "absolute",
         left: car.x,
         top: car.y
     })
