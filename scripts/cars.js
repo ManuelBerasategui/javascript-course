@@ -26,3 +26,5 @@ var nissan = new Car(100, 200)
 drawCar(tesla)
 drawCar(nissan)
 
+
+
