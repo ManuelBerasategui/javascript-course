@@ -106,7 +106,7 @@ Car.prototype.moveDown = function(){
 } */
 
 /* setInterval(function(){
-    tesla.moveRight()
+    tesla.moveRight()   
 }) */
 
 /* Car.prototype.moveLeft = function(){
