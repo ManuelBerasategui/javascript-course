@@ -8,7 +8,7 @@ var Car = function(x, y){
 
 Car.prototype.draw = function(){
     
-    var carHtml = '<img src=https://nostarch.com/images/car.png>'
+    var carHtml = '<img src="images/car.png">'
     this.carElement = $(carHtml)
 
     this.carElement.css({
@@ -56,7 +56,7 @@ Car.prototype.moveDown = function(){
 
 
 var tesla = new Car(20, 20)
-var nissan = new Car(100, 200)
+var nissan = new Car(20, 200)
 
 /* tesla.draw()
 nissan.draw()
@@ -135,6 +135,46 @@ Car.prototype.moveDown = function(){
 
 } */
 
-setInterval(function(){
+/* setInterval(function(){
     tesla.moveRight(400)
-}, 200)
+}, 200) */
+
+Car.prototype.moveRight = function(distance){
+    console.log('Entered prototype')
+    this.x += distance
+    this.carElement.css({
+        left: this.x,
+        top: this.y
+    })
+}
+Car.prototype.moveLeft = function(distance){
+    this.carElement.css({
+        left: -(distance),
+        top: this.y
+    })
+}
+Car.prototype.moveUp = function(distance){
+    this.carElement.css({
+        left: this.x,
+        top: -(distance)
+    })
+}
+Car.prototype.moveDown = function(distance){
+    this.carElement.css({
+        left: this.x,
+        top: distance
+    })
+}
+
+setInterval(function(){
+    distance = Math.floor(Math.random() * 5)
+    console.log(distance)
+    tesla.moveRight(distance)
+}, 30)
+setInterval(function(){
+    distance = Math.floor(Math.random() * 5)
+    console.log(distance)
+    nissan.moveRight(distance)
+}, 30)
+
+    
