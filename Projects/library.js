@@ -52,27 +52,49 @@ Utiliza prototipos para definir comportamientos comunes compartidos entre difere
 
 
 var Books = {
-    book1: 'Atomic Habits',
-    book2: '12 Rules of Life',
-    book3: 'Rich Dad Poor Dad',
-    book4: 'The richest man in Babylon',
-    book5: 'The inteligent Investor'
+    book1: {
+        title: 'Atomic Habits',
+        borrowedDate: null
+    },
+    book2: {
+        title: '12 Rules of Life',
+        borrowedDate: null
+    },
+    book3: {
+        title: 'Rich Dad Poor Dad',
+        borrowedDate: null
+    },
+    book4: {
+        title: 'The richest man in Babylon',
+        borrowedDate: null
+    },
+    book5: {
+        title: 'The inteligent Investor',
+        borrowedDate: null
+    }
+    
 
 }
 
 var borrowedBooks = {}
 
-function toStringObject(obj){
-    let result = ''
-    for(let key in obj){
-        if(obj.hasOwnProperty(key)){
+function toStringObject(obj) {
+    let result = '';
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            let value = obj[key];
+            if (borrowedBooks.hasOwnProperty(key)) {
+                result += key + ': Borrowed ' + value + '\n';
+            } else {
+                result += key + ': ' + value + '\n';
+            }
         }
-        result += key + ': ' + obj[key] + '\n' 
     }
-    return result
-
-
+    return result;
 }
+
+
+
 var Users = {
     Manuel: Math.floor(Math.random() * 1000)
 }
@@ -80,36 +102,56 @@ var libraryObject = {}
 
 function Library(){}
 
+var findedBook = false
 let userName = prompt('Can you give me your users name? ')
 Library.prototype.borrow = function(){
     let borrowedBook = prompt('Choose a book to borrow ')
-
-    let bookExists = Object.values(Books).includes(borrowedBook)
-    if(bookExists){
-        let userID = Users[userName]
-        let currentDate = new Date()
-        borrowedBooks[userID] = borrowedBook
-        alert('Borrowed ' + borrowedBook + ' at ' + currentDate + '\n' + 'Remember to hand in the book before the day ends')
-    }
-    else{
-        alert('That book does not exist')
-    }
     
 
-}
+    while(findedBook === false){
+        for(let book in Books){
+            let bookExists = Object.values(Books[book]).includes(borrowedBook)
+        if(bookExists){
+            let userID = Users[userName]
+            Books[book].borrowedDate = new Date()
+            borrowedBooks[userID] = borrowedBook
+            let currentDate = new Date()
+            alert('Borrowed ' + borrowedBook + ' at ' + currentDate + '\n' + 'Remember to hand in the book before the day ends')
+            break
+        }
+        else if (bookExists === false){
+            alert('That book does not exist')
+        }
+        }
+        
+        
+
+    }}
 
 Library.prototype.hand = function() {
     let handed = prompt('Wich book will the user hand in? ')
     
-    if(currentDate === Date()){
-        alert('Handed in ' + handed + ' succesfully!')
-    }
-    else{
-        alert('The date has expired, you will not be able to borrow a book anymore')
-        return 0
-    }
-    
+    if (Books.hasOwnProperty(handed) && Books[handed].borrowedDate !== null) {
+        
+        var currentDate = new Date();
+        let borrowedDate = Books[handed].borrowedDate;
+
+        if (currentDate > borrowedDate) {
+            alert('The book is overdue.');
+        } else {
+            alert('Handed in ' + handed + ' successfully!');
+        }
+
+        Books[handed].borrowedDate = null;
+
 }
+
+
+    else {
+        alert('Either that book does not exist or has not been borrowed');
+    }
+}
+
 
 var libraryInstance = new Library()
 var exit = false
@@ -147,20 +189,37 @@ while(logedIn === false){
         }
     }
 
-while(exit === false){
+    let catalogString = ''
+    while (exit === false) {
+        for(let book in Books){
+            if(Books.hasOwnProperty(book)){
+                
 
-    alert('This is the Librarys catalog: ' + '\n' + toStringObject(Books))
+                if (typeof Books[book] === 'object') {
+                    // Iterate over properties of the book object
+                    for (let prop in Books[book]) {
+                        if (Books[book].hasOwnProperty(prop) && typeof Books[book][prop] === 'string') {
+                        }
+                        catalogString += '  ' + prop + ': ' + Books[book][prop] + '\n';
+                    }
+                }
+    
+                //Iterate over titles in each book
+               
+            }
+        }
+    
 
-    let option = prompt('Choose an option : 1 "Borrow a book" 2 "Hand in a book" 3 "Exit"')
-    if(option === "1"){
-        libraryInstance.borrow()
+        alert(catalogString)
+
+        let option = prompt('Choose an option: 1 "Borrow a book" 2 "Hand in a book" 3 "Exit"');
+        if (option === "1") {
+            libraryInstance.borrow();
+        } else if (option === "2") {
+            libraryInstance.hand();
+        } else if (option === "3") {
+            exit = true;
+            break;
+        }
     }
-    else if(option === "2"){
-        libraryInstance.hand()
-    }
-    else if(option === "3" || option === undefined){
-        console.log('undefined log')
-        exit = true
-        break
-    }
-}
+    
