@@ -29,14 +29,23 @@ class Course {
 
     addStudent(studentName) {
         this.students.push(studentName)
+        
     }
     removeStudent(student) {
         this.students.pop(student)
     }
     displayDetails(){
-        console.log(` Course ID: ${this.id}`);
-        console.log(`Course Name: ${this.name}`);
-        console.log(`Course Instructor: ${this.instructor}`);
-        console.log(`Course Students: ${this.students}`);
+        console.log('Course ID: ' + this.id)
+        console.log('Course Name: ' + this.name)
+        console.log('Instructor: ' + this.instructor)
+        console.log('Enrolled Students: \n')
+        for(let i = 0; i < this.students.length; i++){
+            console.log(i + '. ' + this.students[i])
+        }
     }
+    
+}
+
+class School {
+    
 }
