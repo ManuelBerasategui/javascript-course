@@ -47,5 +47,34 @@ class Course {
 }
 
 class School {
-    
+    constructor(){
+        this.students = []
+        this.courses = []
+    }
+    removeStudent(student){
+        this.students.pop(student)
+    }
+    removeCourse(course){
+        this.courses.pop(course)
+    }
+    addStudent(student){
+        this.students.push(student)
+    }
+    addCourse(course){
+        this.courses.push(course)
+    }
+    displayStudents(){
+        console.log('Student Body: \n')
+        for(let i = 0; i < this.students.length; i++){
+            console.log(i + this.students[i])
+        }
+        
+    }
+    displayCourses(){
+        console.log('Course Catalog: \n')
+        for(let i = 0; i < this.courses.length; i++){
+            console.log('Course ID: ' + this.courses[i].id + '\n' + 'Course Name: ' + this.courses[i].name + '\n' + 'Instructor: ' + this.courses[i].instructor + '\n')
+        }
+        for(let i = 0; i < this.courses.st; i++)
+    }
 }
