@@ -8,14 +8,26 @@ class Student {
     }
 
     addCourse(course){
-        this.courses.push(course)
+        if(course instanceof Course){
+            this.courses.push(course)
+        }
+        else{
+            console.log('First, create an instance of course with the Course constructor')
+        }
+        
     }
     deleteCourse(deleted){
-        for(let i = 0; i < this.courses.length; i++){
-            if(this.courses[i] === deleted){
-                this.courses.pop(deleted)
+        if(deleted instanceof Course){
+            for(let i = 0; i < this.courses.length; i++){
+                if(this.courses[i] === deleted){
+                    this.courses.pop(deleted)
+                }
             }
         }
+        else{
+            console.log('First, create an instance of course with the Course constructor')
+        }
+        
     }
 }
 
@@ -28,11 +40,23 @@ class Course {
     }
 
     addStudent(studentName) {
-        this.students.push(studentName)
+        if(studentName instanceof Student){
+            this.students.push(studentName)
+        }
+        else{
+            console.log('First, create an instance of student with the Student constructor')
+        }
+        
         
     }
     removeStudent(student) {
-        this.students.pop(student)
+        if(student instanceof Student){
+            this.students.pop(student)
+        }
+        else{
+            console.log('First, create an instance of student with the Student constructor')
+        }
+        
     }
     displayDetails(){
         console.log('Course ID: ' + this.id)
@@ -51,30 +75,57 @@ class School {
         this.students = []
         this.courses = []
     }
-    removeStudent(student){
-        this.students.pop(student)
-    }
-    removeCourse(course){
-        this.courses.pop(course)
-    }
+    
     addStudent(student){
-        this.students.push(student)
+        if(student instanceof Student){
+            this.students.push(student)
+        }
+        else{
+            console.log('First, use the Student constructor to create a student')
+        }
+        
     }
     addCourse(course){
-        this.courses.push(course)
+        if(course instanceof Course){
+            this.courses.push(course)
+        }
+        else{
+            console.log('First, use the Course constructor to create a course')
+        }
+        
     }
+    removeStudent(student){
+        if(student instanceof Student){
+            this.students.splice(student)
+        }
+        else{
+            console.log('First, use the Student constructor to create a student')
+        }
+        
+    }
+    removeCourse(course){
+        if(course instanceof Course){
+            this.courses.splice(course)
+        }
+        else{
+            console.log('First, use the Course constructor to create a course')
+        }
+        
+    }
+    
     displayStudents(){
         console.log('Student Body: \n')
         for(let i = 0; i < this.students.length; i++){
-            console.log(i + this.students[i])
+            console.log(i + '. ' + this.students[i].name)
         }
         
     }
     displayCourses(){
         console.log('Course Catalog: \n')
+        
         for(let i = 0; i < this.courses.length; i++){
             console.log('Course ID: ' + this.courses[i].id + '\n' + 'Course Name: ' + this.courses[i].name + '\n' + 'Instructor: ' + this.courses[i].instructor + '\n')
         }
-        for(let i = 0; i < this.courses.st; i++)
+        
     }
 }
