@@ -16,12 +16,28 @@ document.addEventListener('DOMContentLoaded', function(){
     //Add task function
     function addTask(text){
         const li = document.createElement('li')
-        li.textContent = text
+        const button = document.createElement('button')
+        button.textContent = 'Delete'
+        button.id = 'DeleteBtn'
 
+        li.textContent = text
+        li.appendChild(button)
+        
         li.addEventListener('click', function () {
             li.classList.toggle('completed')
           })
 
           taskList.appendChild(li)
+
+          
+    }
+
+    function removeTask(document.getElementById(DeleteBtn).addEventListener('click', function () {
+
+      })){
+        
     }
 })
+
+
+
