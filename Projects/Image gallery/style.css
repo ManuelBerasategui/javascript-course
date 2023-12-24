@@ -1,0 +1,22 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0%;
+    padding: 0%;
+}
+
+#gallery img{
+    max-width: 250px;
+    height: auto;
+    display: inline-block;
+    
+}
+
+#gallery li{
+    margin-left: 10px;
+    float: left;
+    margin-right: 10px;
+   
+}
+
+
+

@@ -29,13 +29,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
           taskList.appendChild(li)
 
-          
-    }
-
-    function removeTask(document.getElementById(DeleteBtn).addEventListener('click', function () {
-
-      })){
-        
+          if(button.addEventListener('click', function deleteTask () {
+            li.remove()
+            })){
+                deleteTask()
+            }
     }
 })
 
