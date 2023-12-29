@@ -21,3 +21,7 @@ input{
     width: 75px;
     height: 29px;
 }
+
+ul{
+    text-decoration: dashed;
+}

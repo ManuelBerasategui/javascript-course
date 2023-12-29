@@ -5,6 +5,7 @@
             Para esto, lo más sencillo es usar la función onclick="" en el elemento que contenga al botón en el html, para detectar cuando sea presionado.
             Ese elemento de lista contendrá el texto escrito en el input
             El input tendrá un ID donde se guardará la información, para utilizarla luego en el elemento de lista
+            Luego hay que usar la función appendChild para unir el elemento li al ul
         
         Task Display
 
@@ -23,5 +24,18 @@
             En el momento en que se clickea el botón, se llamará a la función correspondiente del js para borrar un elemento de la lista.
             Para saber qué elemento de la lista borrar, se debe usar su ID
                 */
+
+function addTask() {
+    var li = document.createElement('li')
+    var inp = document.getElementById('taskName').value
+    li.innerHTML = inp
+
+    //Agrego el elemento de lista a la unordered list
+    document.getElementById('unordered').appendChild(li)
+    //Reseteo el campo de texto del input
+    document.getElementById('taskName').value = ''
+}
+
+
 
             
