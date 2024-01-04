@@ -14,7 +14,7 @@
         Task Completion
 
             Si el usuario toca encima del elemento de lista, se llamará a la funcion que corresponda marcar como completado la task.
-            Esto, recordemos, se hace con la funcion onclick="" de html.
+            Para detectar no voy a poder usar onclick="", puesto que voy a estar trabajando sobre elementos que todavia no fueron creados, como son los li. 
             La función de marcar como completado hará que el texto de la lista aparezca tachado o cambie de color, como se prefiera.
         
         Task Removal
@@ -25,16 +25,46 @@
             Para saber qué elemento de la lista borrar, se debe usar su ID
                 */
 
+
+
+//Task addition
 function addTask() {
     var li = document.createElement('li')
     var inp = document.getElementById('taskName').value
     li.innerHTML = inp
-
+    li.id = 'listItem'
+    
+    button = document.createElement('button')
+    button.innerHTML = 'Delete'
+    button.id = 'deleteBtn'
+    
     //Agrego el elemento de lista a la unordered list
     document.getElementById('unordered').appendChild(li)
+    li.appendChild(button)
     //Reseteo el campo de texto del input
     document.getElementById('taskName').value = ''
 }
+
+//Task completion
+
+document.getElementById('unordered').addEventListener('click', function () {
+    if(event.target.id === 'listItem'){
+        console.log('dfefes')
+        event.target.style.textDecoration = 'line-through'
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
