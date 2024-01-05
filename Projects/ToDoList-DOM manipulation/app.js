@@ -20,7 +20,7 @@
         Task Removal
             
             Cuando se cree un elemento de lista que esté representando a una task, se va a crear a su lado un botón de borrar.
-            Para checkear si ese botón es presionado, hay que usar la función onclick="" de html.
+            Para checkear si ese botón es presionado, no puedo usar la función de onclick="" ya que estoy de vuelta trabajando sobre un elemento que no fue creado. Por eso, la funcionalidad va a ser similar a la de task completion
             En el momento en que se clickea el botón, se llamará a la función correspondiente del js para borrar un elemento de la lista.
             Para saber qué elemento de la lista borrar, se debe usar su ID
                 */
@@ -47,12 +47,22 @@ function addTask() {
 
 //Task completion
 
-document.getElementById('unordered').addEventListener('click', function () {
-    if(event.target.id === 'listItem'){
-        console.log('dfefes')
+document.getElementById('unordered').addEventListener('click', function compTask() {
+    if(event.target.id === 'listItem' && event.target.style.textDecoration !== 'line-through'){
         event.target.style.textDecoration = 'line-through'
     }
+    else{
+        event.target.style.textDecoration = 'none'
+    }
 })
+
+//Task deletion
+
+document.getElementById('unordered').addEventListener('click',  function delTask() {
+    if(event.target.id === 'deleteBtn'){
+        event.target.parentElement.remove()
+    }
+  })
 
 
 
